@@ -1,0 +1,83 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="b6.help.view.home" 
+	  xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+
+	<Page>
+		<content>
+		<VBox alignItems="End">
+		  <HBox>
+		    <Button text="SignUp" type="Accept"/>
+		    <Button text="Login" type="Accept"/>
+		  </HBox>
+		</VBox> 
+		<VBox>
+		<Label/>
+		</VBox>
+		<VBox>
+		<Label/>
+		</VBox>
+		<VBox>
+		<Label/>
+		</VBox>
+		<VBox>
+		<Label/>
+		</VBox>
+		<VBox>
+		<Label/>
+		</VBox>
+		<VBox>
+		<Label/>
+		</VBox>
+		<VBox>
+		<Label/>
+		</VBox>
+		<VBox>
+		<Label/>
+		</VBox>
+		<VBox>
+		<Label/>
+		</VBox>
+		<VBox>
+		<Label/>
+		</VBox>
+		<VBox>
+		<Label/>
+		</VBox>
+		<VBox>
+		<Label/>
+		</VBox>
+		<l:Grid
+    defaultSpan="L12 M12 S12"
+    width="auto">
+    <l:content>
+      <f:SimpleForm id="idSimpleFormChange1"
+        minWidth="1024"
+        maxContainerCols="2"
+        editable="true"
+        layout="ResponsiveGridLayout"
+        
+        labelSpanM="2"
+        emptySpanL="0"
+        emptySpanM="0"
+       
+       >
+        <!-- labelSpanM : 2 stands for Default span for labels in medium size. This property is used for full-size groups (FormContainers). If more than one group (FormContainer) is in one line, labelSpanL is used. Note: This property is only used if a ResponsiveGridLayout is used as a layout. -->
+        <f:content>
+            
+          <Label text="Locate your Address" />
+          <Input id="idAddress" type="Text" width="100%"
+			showSuggestion="true" suggest="onAddressTyped" suggestionItems="{/results}"
+			suggestionItemSelected="onAddressSelected">
+			<suggestionItems>
+				<core:Item text="{formatted_address}" />
+			</suggestionItems>
+		</Input><Button text="Show Orphange" type="Accept" width="40%"/>
+        
+        </f:content>
+      </f:SimpleForm>
+    </l:content>
+  </l:Grid>		
+		</content>
+	</Page>
+</core:View>
