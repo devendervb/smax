@@ -1,14 +1,13 @@
 <core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m" controllerName="b6.help.view.home" 
-	  xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
-	xmlns:html="http://www.w3.org/1999/xhtml">
-
+	       xmlns="sap.m" controllerName="b6.help.view.home" 
+	       xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	       xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page>
 		<content>
 		<VBox alignItems="End">
 		  <HBox>
-		    <Button text="SignUp" type="Accept"/>
-		    <Button text="Login" type="Accept"/>
+		    <Button text="SignUp" type="Accept" press="login"/>
+		    <Button text="Login"  type="Accept" press="login"/>
 		  </HBox>
 		</VBox> 
 		<VBox>
