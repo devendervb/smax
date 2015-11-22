@@ -12,10 +12,6 @@
 		  </HBox>
 		</VBox> 
 		<VBox>
-		  <HBox>
-		    <Button text="SignUp" type="Accept"/>
-		    <Button text="Login" type="Accept"/>
-		  </HBox>
 		<Label/>
 		</VBox>
 		<VBox>
