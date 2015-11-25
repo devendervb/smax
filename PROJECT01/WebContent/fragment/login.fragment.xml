@@ -1,68 +1,54 @@
-<core:FragmentDefinition xmlns="sap.m"	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
-	<Dialog showHeader="false">
-		<IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}"	class="sapUiResponsiveContentPadding">
+<core:FragmentDefinition xmlns="sap.m" xmlns:c="sap.ui.commons"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog showHeader="false" contentWidth="25%" contentHeight="70%">
+	    <customHeader>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://decline" press="close"/>
+			</Toolbar>
+		</customHeader>
+		<IconTabBar	class="sapUiResponsiveContentPadding">
 			<items>
 				<IconTabFilter text="Sign Up">
-
-					<l:VerticalLayout class="sapUiContentPadding"
-						width="100%">
-
-						<l:content>
-
-							<Label text="Name" class="sapUiSmallMarginBottom" design="Bold" />
-
+					<VBox>
+						<HBox>
+							<Label labelfor="idName" width="80px" text="Name" design="Bold" />
 							<Input id="idName" />
-
-							<Label text="Mobile" class="sapUiSmallMarginBottom" design="Bold" />
-
+						</HBox>
+						<HBox>
+							<Label width="80px" text="Mobile" design="Bold" />
 							<Input id="idMobile" />
-
-							<Label text="Email" class="sapUiSmallMarginBottom" design="Bold" />
-
+						</HBox>
+						<HBox>
+							<Label width="80px" text="Email" design="Bold" />
 							<Input id="idEmail" />
-
-							<Label text="Password" class="sapUiSmallMarginBottom"
-								design="Bold" />
-
-							<Input id="idPassword" />
-
-							<Button type="Accept" text="Register" press="" />
-
-						</l:content>
-
-					</l:VerticalLayout>
-
+						</HBox>
+						<HBox>
+							<Label width="80px" text="Password" design="Bold" />
+							<Input type="Password" id="idPassword" />
+						</HBox>
+						<HBox>
+							<Button type="Accept" text="Register" press="register" />
+						</HBox>
+					</VBox>
 				</IconTabFilter>
-
-
 				<IconTabFilter text="Sign In">
-
-					<l:VerticalLayout class="sapUiContentPadding"
-						width="100%">
-
-						<l:content>
-
-							<Label text="Email" class="sapUiSmallMarginBottom" design="Bold" />
-
+					<VBox>
+						<HBox>
+							<Label width="80px" text="Email" design="Bold" />
 							<Input id="idSEmail" />
-
-							<Label text="Password" class="sapUiSmallMarginBottom"
-								design="Bold" />
-
-							<Input id="idSPassword" />
-
+						</HBox>
+						<HBox>
+							<Label width="80px" text="Password" design="Bold" />
+							<Input type="Password" id="idSPassword" />
+						</HBox>
+						<HBox>
 							<Button type="Accept" text="Sign In" press="" />
-
-						</l:content>
-
-					</l:VerticalLayout>
-
+						</HBox>
+					</VBox>
 				</IconTabFilter>
-
 			</items>
-
 		</IconTabBar>
-
 	</Dialog>
-
 </core:FragmentDefinition>
