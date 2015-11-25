@@ -7,8 +7,8 @@
 		<content>
 		<VBox alignItems="End">
 		  <HBox>
-		    <Button text="SignUp" type="Accept" press="login"/>
-		    <Button text="Login" type="Accept" press="login"/>
+		    <Button text="Sign Up" type="Accept" press="signup"/>
+		    <Button text="Sign In" type="Accept" press="signin"/>
 		  </HBox>
 		</VBox> 
 		<VBox>

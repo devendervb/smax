@@ -8,9 +8,9 @@
 				<Button icon="sap-icon://decline" press="close"/>
 			</Toolbar>
 		</customHeader>
-		<IconTabBar	class="sapUiResponsiveContentPadding">
+		<IconTabBar	class="sapUiResponsiveContentPadding" id="idIconTabBar">
 			<items>
-				<IconTabFilter text="Sign Up">
+				<IconTabFilter key="keySignUp" text="Sign Up">
 					<VBox>
 						<HBox>
 							<Label labelfor="idName" width="80px" text="Name" design="Bold" />
@@ -33,7 +33,7 @@
 						</HBox>
 					</VBox>
 				</IconTabFilter>
-				<IconTabFilter text="Sign In">
+				<IconTabFilter key="keySignIn" text="Sign In">
 					<VBox>
 						<HBox>
 							<Label width="80px" text="Email" design="Bold" />

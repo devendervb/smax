@@ -77,10 +77,20 @@ sap.ui
 							;
 						}
 						;
-					},
+					},	
 
-					login : function() {
+					signup : function() {
+						debugger;
+						this.onOpenDialog();	
+						var oIconTabBar = sap.ui.getCore().byId("idIconTabBar");											   
+						oIconTabBar.setSelectedKey("keySignUp");
+					},
+					
+					signin : function() {
+						debugger;						
 						this.onOpenDialog();
+						var oIconTabBar = sap.ui.getCore().byId("idIconTabBar");										   
+						oIconTabBar.setSelectedKey("keySignIn");
 					},
 					
 					close : function() {
