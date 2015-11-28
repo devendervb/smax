@@ -11,18 +11,7 @@ sap.ui
 					 * @memberOf view.home
 					 */
 					onInit : function() {
-//						var sServiceUrl = "proxy/http/smax.serveexchange.com:8000/sap/opu/odata/sap/ZHH_GW_USER_INFO_SRV/UserSet";
-//						var oModel = new sap.ui.model.odata.ODataModel(
-//								sServiceUrl, true);
-//
-//						var oJsonModel = new sap.ui.model.json.JSONModel();
-//
-//						oModel.read("/UserSet?", null, null, true,
-//								function(oData, repsonse) {
-//									oJsonModel.setData(oData);
-//								});
-//						sap.ui.getCore().setModel(oJsonModel);
-
+				
 					},
 					
 					onAddressTyped : function(oEvent) {
@@ -46,48 +35,33 @@ sap.ui
 											dataType : 'json',
 											success : function(data,
 													textStatus, jqXHR) {
-												// set formatted
-												// address Json
-												// file to Odata
-												// Modle
+											
 												oModel1.setData(data);
-												// sap.ui.getCore().setModel(oModel1);
 												myview.setModel(oModel1);
-												// Binding
-												// formatted
-												// address with
-												// suggestion
-												// items
-
 												aFilters
 														.push(new sap.ui.model.Filter(
 																"formatted_address",
 																sap.ui.model.FilterOperator.Contains,
 																""));
-												// oEvent.getSource().getBinding("suggestionItems").filter(aFilters);
-												// console.log("Source");
-												// myAddress.getBindingContext();
+											
 												myAddress.getBinding(
 														"suggestionItems")
 														.filter(aFilters);
 											}
 										});
-
-							}
-							;
-						}
-						;
+							};
+						};
 					},	
 
 					signup : function() {
-						debugger;
+					//	debugger;
 						this.onOpenDialog();	
 						var oIconTabBar = sap.ui.getCore().byId("idIconTabBar");											   
 						oIconTabBar.setSelectedKey("keySignUp");
 					},
 					
 					signin : function() {
-						debugger;						
+					//	debugger;						
 						this.onOpenDialog();
 						var oIconTabBar = sap.ui.getCore().byId("idIconTabBar");										   
 						oIconTabBar.setSelectedKey("keySignIn");
@@ -103,7 +77,7 @@ sap.ui
 							// create dialog via fragment factory
 							this._oDialog = sap.ui.xmlfragment(
 									"fragment.login", this);
-							// connect dialog to view (models, lifecycle)
+						
 							this.getView().addDependent(this._oDialog);
 						}
 						return this._oDialog;
@@ -111,6 +85,7 @@ sap.ui
 
 					onOpenDialog : function() {
 						this._getDialog().open();
+					
 					},
 					
 					onCloseDialog : function() {
@@ -118,6 +93,33 @@ sap.ui
 					},
 						
 					register : function() {
+					
+						var oEntry = {};
+						oEntry.Name = sap.ui.getCore().byId("idName")
+								.getValue();
+						oEntry.Email = sap.ui.getCore().byId("idEmail")
+								.getValue();
+						oEntry.Mobile = sap.ui.getCore().byId("idMobile")
+								.getValue();
+						oEntry.Password = sap.ui.getCore().byId("idPassword")
+								.getValue();
+                        var url = "proxy/http/smax.serveexchange.com:8000/sap/opu/odata/sap/ZHELP_GW_USER_INFO_SRV/"
+						var oModel  = new sap.ui.model.odata.v2.ODataModel(url);
+                        oModel.create("/UserDetailsSet", oEntry,{ success: function(oData, response) {  
+                // need to close the dialog box
+                       // 	this._getDialog().close();
+                        	debugger;
+                        new	sap.m.MessageToast.show("Thank you for Registration");
+                            },  
+                            failed: function(oData, response) {  
+                            alert("Failed to get InputHelpValues from service!");  
+                            } 
+                            })
+                        debugger;
+			
+					},
+					signIn : function() {
+						alert("testing");
 						var oEntry = {};
 						oEntry.Name = sap.ui.getCore().byId("idName")
 								.getValue();
@@ -128,50 +130,7 @@ sap.ui
 						oEntry.Password = sap.ui.getCore().byId("idPassword")
 								.getValue();
 
-//						OData
-//								.request(
-//										{
-//											requestUri : "proxy/http/smax.serveexchange.com:8000/sap/opu/odata/sap/ZHH_GW_USER_INFO_SRV/UserSet",
-//											method : "GET",
-//											headers : {
-//												"X-Requested-With" : "XMLHttpRequest",
-//												"Content-Type" : "application/atom+xml",
-//												"DataServiceVersion" : "2.0",
-//												"X-CSRF-Token" : "Fetch"
-//											}
-//										},
-//										function(data, response) {
-//											header_xcsrf_token = response.headers['x-csrf-token'];
-//											var oHeaders = {
-//												"x-csrf-token" : header_xcsrf_token,
-//												'Accept' : 'application/json',
-//											};
-//
-//											OData
-//													.request(
-//															{
-//																requestUri : "proxy/http/smax.serveexchange.com:8000/sap/opu/odata/sap/ZHH_GW_USER_INFO_SRV/UserSet",
-//
-//																method : "POST",
-//																headers : oHeaders,
-//																data : oEntry
-//															},
-//															function(data,
-//																	request) {
-//																alert("User Created Successfully");
-//																location
-//																		.reload(true);
-//															},
-//															function(err) {
-//																alert("User Creation Failed");
-//															});
-//										}, function(err) {
-//											var request = err.request;
-//											var response = err.response;
-//											alert("Error in Get -- Request "
-//													+ request + " Response "
-//													+ response);
-//										});
+			
 					},
 
 				});
