@@ -1,0 +1,16 @@
+{
+  "Orphanages" : [
+	{
+	  "Name" : "Rajeshwari Old Age Home",
+	  "Address" : "Door No 4-32-41/130/1, Sai Nagar, Alwyn Colony, Kukatpally, Hyderabad - 500072, Near Ssd Grammer High School",
+	  "ImageUrl" : "images/oldage.jpg",
+	  "Distance" : "4 kms from here"
+	},
+	{
+	  "Name" : "Care & Love Orphanage",
+	  "Address" : "Door No 4-32-41/130/1, Sai Nagar, Alwyn Colony, Kukatpally, Hyderabad - 500072, Near Ssd Grammer High School",
+	  "ImageUrl" : "images/oldage.jpg",
+	  "Distance" : "4 kms from here"
+	}
+  ]
+}

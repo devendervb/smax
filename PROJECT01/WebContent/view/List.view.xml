@@ -1,0 +1,20 @@
+<mvc:View controllerName="b6.help.view.List" xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<l:VerticalLayout class="sapUiContentPadding" width="100%">
+		<Button xmlns="sap.m" id="donate" visible="true" text="Click to Donate"
+			type="Emphasized" width="" enabled="true" icon="" iconFirst="true"
+			activeIcon="" iconDensityAware="true" textDirection="Inherit"
+			ariaDescribedBy="" ariaLabelledBy="" tap="" press="">
+			<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+			<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+		</Button>
+
+		<l:content>
+			<List headerText="2 Orphanages" items="{/Orphanages}">
+				<FeedListItem sender="{Name}" icon="{ImageUrl}"
+					senderPress="onPress" iconPress="onPress" iconDensityAware="false"
+					info="{Distance}" text="{Address}" />
+			</List>
+		</l:content>
+	</l:VerticalLayout>
+</mvc:View>
