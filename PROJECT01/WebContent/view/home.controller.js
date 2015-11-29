@@ -107,6 +107,7 @@ sap.ui
 								.getValue();
 						var url = "proxy/http/smax.serveexchange.com:8000/sap/opu/odata/sap/ZHELP_GW_USER_INFO_SRV/"
 						var oModel = new sap.ui.model.odata.v2.ODataModel(url);
+						debugger;
 						oModel
 								.create(
 										"/UserDetailsSet",
@@ -115,7 +116,7 @@ sap.ui
 											success : function(oData, response) {
 												// need to close the dialog box
 												// this._getDialog().close();
-												debugger;
+												//debugger;
 												new sap.m.MessageToast.show(
 														"Thank you for Registration");
 											},
@@ -123,11 +124,11 @@ sap.ui
 												alert("Failed to get InputHelpValues from service!");
 											}
 										})
-						debugger;
+					//	debugger;
 
 					},
 					signIn : function() {
-						alert("testing");
+					//	alert("testing");
 						var oEntry = {};
 						oEntry.Name = sap.ui.getCore().byId("idName")
 								.getValue();
@@ -141,7 +142,25 @@ sap.ui
 					},
 
 					showOrphList : function() {
-
+						var url = "proxy/http/smax.serveexchange.com:8000/sap/opu/odata/sap/ZHELP_GW_USER_INFO_SRV/"
+							var oModel = new sap.ui.model.odata.v2.ODataModel(url);
+							oModel
+									.read(
+											"/UserDetailsSet",
+											oEntry,
+											{
+												success : function(oData, response) {
+													// need to close the dialog box
+													// this._getDialog().close();
+													app = this.getView().getParent();
+													app.to("app--idList");
+											//		new sap.m.MessageToast.show(
+											//				"Thank you for Registration");
+												},
+												failed : function(oData, response) {
+													alert("We are not able to fetch required Orphanage Details, contact us at ");
+												}
+											})
 						app = this.getView().getParent();
 						app.to("app--idList");
 
