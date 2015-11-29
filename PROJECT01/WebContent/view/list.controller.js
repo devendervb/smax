@@ -6,12 +6,12 @@ sap.ui.define([
 	], function(jQuery, MessageToast, Controller, JSONModel) {
 	"use strict";
 
-	var ListController = Controller.extend("b6.help.view.List", {
+	var ListController = Controller.extend("b6.help.view.list", {
 
 		onInit: function () {
 			// set mock model
-			var sPath = jQuery.sap.getModulePath("com.sap.venky", "/data.json")
-			var oModel = new JSONModel(sPath);
+		//	var sPath = jQuery.sap.getModulePath("com.sap.venky", "/data.json")
+			var oModel = new JSONModel("model/data.json");
 			this.getView().setModel(oModel);
 		},
 

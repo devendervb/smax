@@ -1,4 +1,4 @@
-<mvc:View controllerName="b6.help.view.List" xmlns:l="sap.ui.layout"
+<mvc:View controllerName="b6.help.view.list" xmlns:l="sap.ui.layout"
 	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
 	<l:VerticalLayout class="sapUiContentPadding" width="100%">
 		<Button xmlns="sap.m" id="donate" visible="true" text="Click to Donate"

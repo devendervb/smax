@@ -11,9 +11,9 @@ sap.ui
 					 * @memberOf view.home
 					 */
 					onInit : function() {
-				
+
 					},
-					
+
 					onAddressTyped : function(oEvent) {
 						var sTerm = oEvent.getParameter("suggestValue");
 						myAddress = oEvent.getSource();
@@ -35,7 +35,7 @@ sap.ui
 											dataType : 'json',
 											success : function(data,
 													textStatus, jqXHR) {
-											
+
 												oModel1.setData(data);
 												myview.setModel(oModel1);
 												aFilters
@@ -43,30 +43,32 @@ sap.ui
 																"formatted_address",
 																sap.ui.model.FilterOperator.Contains,
 																""));
-											
+
 												myAddress.getBinding(
 														"suggestionItems")
 														.filter(aFilters);
 											}
 										});
-							};
-						};
-					},	
+							}
+							;
+						}
+						;
+					},
 
 					signup : function() {
-					//	debugger;
-						this.onOpenDialog();	
-						var oIconTabBar = sap.ui.getCore().byId("idIconTabBar");											   
+						// debugger;
+						this.onOpenDialog();
+						var oIconTabBar = sap.ui.getCore().byId("idIconTabBar");
 						oIconTabBar.setSelectedKey("keySignUp");
 					},
-					
+
 					signin : function() {
-					//	debugger;						
+						// debugger;
 						this.onOpenDialog();
-						var oIconTabBar = sap.ui.getCore().byId("idIconTabBar");										   
+						var oIconTabBar = sap.ui.getCore().byId("idIconTabBar");
 						oIconTabBar.setSelectedKey("keySignIn");
 					},
-					
+
 					close : function() {
 						this.onCloseDialog();
 					},
@@ -77,7 +79,7 @@ sap.ui
 							// create dialog via fragment factory
 							this._oDialog = sap.ui.xmlfragment(
 									"fragment.login", this);
-						
+
 							this.getView().addDependent(this._oDialog);
 						}
 						return this._oDialog;
@@ -85,15 +87,15 @@ sap.ui
 
 					onOpenDialog : function() {
 						this._getDialog().open();
-					
+
 					},
-					
+
 					onCloseDialog : function() {
 						this._getDialog().close();
 					},
-						
+
 					register : function() {
-					
+
 						var oEntry = {};
 						oEntry.Name = sap.ui.getCore().byId("idName")
 								.getValue();
@@ -103,20 +105,26 @@ sap.ui
 								.getValue();
 						oEntry.Password = sap.ui.getCore().byId("idPassword")
 								.getValue();
-                        var url = "proxy/http/smax.serveexchange.com:8000/sap/opu/odata/sap/ZHELP_GW_USER_INFO_SRV/"
-						var oModel  = new sap.ui.model.odata.v2.ODataModel(url);
-                        oModel.create("/UserDetailsSet", oEntry,{ success: function(oData, response) {  
-                // need to close the dialog box
-                       // 	this._getDialog().close();
-                        	debugger;
-                        new	sap.m.MessageToast.show("Thank you for Registration");
-                            },  
-                            failed: function(oData, response) {  
-                            alert("Failed to get InputHelpValues from service!");  
-                            } 
-                            })
-                        debugger;
-			
+						var url = "proxy/http/smax.serveexchange.com:8000/sap/opu/odata/sap/ZHELP_GW_USER_INFO_SRV/"
+						var oModel = new sap.ui.model.odata.v2.ODataModel(url);
+						oModel
+								.create(
+										"/UserDetailsSet",
+										oEntry,
+										{
+											success : function(oData, response) {
+												// need to close the dialog box
+												// this._getDialog().close();
+												debugger;
+												new sap.m.MessageToast.show(
+														"Thank you for Registration");
+											},
+											failed : function(oData, response) {
+												alert("Failed to get InputHelpValues from service!");
+											}
+										})
+						debugger;
+
 					},
 					signIn : function() {
 						alert("testing");
@@ -130,7 +138,13 @@ sap.ui
 						oEntry.Password = sap.ui.getCore().byId("idPassword")
 								.getValue();
 
-			
 					},
+
+					showOrphList : function() {
+
+						app = this.getView().getParent();
+						app.to("app--idList");
+
+					}
 
 				});

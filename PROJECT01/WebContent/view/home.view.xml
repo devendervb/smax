@@ -72,7 +72,7 @@
 			<suggestionItems>
 				<core:Item text="{formatted_address}" />
 			</suggestionItems>
-		</Input><Button text="Show Orphanges" type="Accept" width="40%"/>
+		</Input><Button text="Show Orphanges" type="Accept" width="40%" press="showOrphList"/>
         
         </f:content>
       </f:SimpleForm>
